@@ -16,12 +16,16 @@ def TranscribeRequest():
   aiModel = request.form.get("aiModel")
   if(request.form.get("isEnglish")=='on'):
     aiModel += '.en'
+  print('selected aiModel:'+aiModel)
   model = whisper.load_model(aiModel)
   audio = request.files['audioFile']
   audioTmpDir = "./tmp/"+audio.filename
   audio.save(audioTmpDir)
+  print('file uplodad sucessfully: ' + audioTmpDir)
   result = model.transcribe(audioTmpDir)
+  print('transcription finished: '+result['text'])
   os.remove(audioTmpDir)
+  print('file deleted')
   return render_template("index.html", content = result['text'])
 
 
