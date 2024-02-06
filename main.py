@@ -22,4 +22,5 @@ def TranscribeRequest():
   return render_template("index.html", content = result['text'])
 
 
-app.run(debug=(os.environ['environment']!='prod'))
+if __name__ == '__main__':
+  app.run()
