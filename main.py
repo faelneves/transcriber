@@ -1,4 +1,4 @@
-from flask import Flask,render_template, make_response, jsonify, request
+from flask import Flask, render_template, make_response, jsonify, request
 import whisper
 import os
 
@@ -13,8 +13,11 @@ def TranscribeRequest():
   if 'audioFile' not in request.files:
     return make_response(jsonify(message = 'audio file required'), 422)
   
+  aiModel = request.form.get("aiModel")
+  if(request.form.get("isEnglish")=='on'):
+    aiModel += '.en'
+  model = whisper.load_model(aiModel)
   audio = request.files['audioFile']
-  model = whisper.load_model("base")
   audioTmpDir = "./tmp/"+audio.filename
   audio.save(audioTmpDir)
   result = model.transcribe(audioTmpDir)

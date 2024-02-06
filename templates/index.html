@@ -19,6 +19,31 @@
             <label for="audioFile" class="form-label">Please Select the Audio File</label>
             <input name="audioFile" type="file" class="form-control" id="audioFile" required accept="audio/*">
           </div>
+          <div name="ai-model" class="pb-3">
+            <div class="row">
+              <label for="audioFile" class="form-label">Please Select the AI Model</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="aiModel" id="tiny" value="tiny" checked>
+              <label class="form-check-label" for="tiny">tiny (fastest)</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="aiModel" id="base" value="base">
+              <label class="form-check-label" for="base">base</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="aiModel" id="small" value="small">
+              <label class="form-check-label" for="small">small</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="aiModel" id="medium" value="medium">
+              <label class="form-check-label" for="medium">medium (most accurate)</label>
+            </div>
+          </div>
+          <div class="form-check form-switch pb-3">
+            <input class="form-check-input" type="checkbox" id="isEnglish" name="isEnglish" checked>
+            <label class="form-check-label" for="isEnglish">Is an english audio</label>
+          </div>
 
           <button type="submit" class="btn btn-primary">Trancribe</button>
         </form>
@@ -26,6 +51,7 @@
       <div class="row">
         <h2>Instructions</h2>
         <li>Select your audio file</li>
+        <li>Choose the best configuration according to your goals</li>
         <li>Wait for transcription (can take a time for big files)</li>
         <li>Get your result</li>
       </div>
