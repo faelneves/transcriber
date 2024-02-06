@@ -23,8 +23,9 @@ def TranscribeRequest():
     aiModel += '.en'
   print('selected aiModel:'+aiModel)
   model = whisper.load_model(aiModel)
+  print('model loaded successfully')
   audio = request.files['audioFile']
-  audioTmpDir = "./tmp/"+audio.filename
+  audioTmpDir = "."+audio.filename
   audio.save(audioTmpDir)
   print('file uplodad sucessfully: ' + audioTmpDir)
   result = model.transcribe(audioTmpDir)
