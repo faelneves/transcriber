@@ -28,7 +28,7 @@ def TranscribeRequest():
   audioTmpDir = "."+audio.filename
   audio.save(audioTmpDir)
   print('file uplodad sucessfully: ' + audioTmpDir)
-  result = model.transcribe(audioTmpDir)
+  result = model.transcribe(audioTmpDir, fp16=False)
   print('transcription finished: '+result['text'])
   os.remove(audioTmpDir)
   print('file deleted')
