@@ -38,6 +38,10 @@ Transcriber is a powerful audio-to-text conversion application built with Python
    ```bash
     python3 main.py
 
+4. **Open the following URL:**
+   ```bash
+    http://127.0.0.1:5000
+
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
