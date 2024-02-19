@@ -18,6 +18,7 @@ Transcriber is a powerful audio-to-text conversion application built with Python
 - Python 3.x
 - Flask
 - OpenAI Python Library
+- [ffmpeg Library](https://ffmpeg.org/)
 
 
 ### Installation
