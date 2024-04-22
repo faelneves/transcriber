@@ -21,19 +21,19 @@ def TranscribeRequest():
   aiModel = request.form.get("aiModel")
   if(request.form.get("isEnglish")=='on'):
     aiModel += '.en'
-  print('selected aiModel:'+aiModel)
+  print('selected aiModel:'+aiModel, flush=True)
   model = whisper.load_model(aiModel)
-  print('model loaded successfully')
+  print('model loaded successfully', flush=True)
   audio = request.files['audioFile']
   audioTmpDir = "."+audio.filename
   audio.save(audioTmpDir)
-  print('file uplodad sucessfully: ' + audioTmpDir)
+  print('file uplodad sucessfully: ' + audioTmpDir, flush=True)
   result = model.transcribe(audioTmpDir, fp16=False)
-  print('transcription finished: '+result['text'])
+  print('transcription finished: '+result['text'], flush=True)
   os.remove(audioTmpDir)
-  print('file deleted')
+  print('file deleted', flush=True)
   return render_template("index.html", content = result['text'])
 
 
 if __name__ == '__main__':
-  app.run()
+  app.run(debug=True)
